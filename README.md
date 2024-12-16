@@ -34,6 +34,8 @@ This project is a web application built using React and Next.js. It includes fea
 - **Key Features**:
   - Provides a static list of keywords for demonstration purposes.
   - Can be expanded or modified to include more relevant terms.
+ 
+- Deployed to : https://google-search-git-main-sehaj1904s-projects.vercel.app/
 
 <img width="1440" alt="Screenshot 2024-12-16 at 10 36 27 PM" src="https://github.com/user-attachments/assets/7f2a3b9c-6804-4622-b29e-48ba3e4ed0b2" />
 
