@@ -8,35 +8,19 @@ This project is a web application built using React and Next.js. It includes fea
 
 - **Search Bar**: A component that provides a search input with typeahead functionality.
   - File: `components/search-bar.tsx`
-  - Relevant Code: 
-    ```typescript:components/search-bar.tsx
-    startLine: 1
-    endLine: 59
-    ```
+
 
 - **Search Dropdown**: Displays a list of trending searches or suggestions.
   - File: `components/search-dropdown.tsx`
-  - Relevant Code: 
-    ```typescript:components/search-dropdown.tsx
-    startLine: 1
-    endLine: 78
-    ```
+
 
 - **Image Search Modal**: A modal for uploading or linking images to search with Google Lens.
   - File: `components/image-search-modal.tsx`
-  - Relevant Code: 
-    ```typescript:components/image-search-modal.tsx
-    startLine: 1
-    endLine: 99
-    ```
+
 
 - **Input Component**: A reusable input component with styling.
   - File: `components/ui/input.tsx`
-  - Relevant Code: 
-    ```typescript:components/ui/input.tsx
-    startLine: 1
-    endLine: 24
-    ```
+
 <img width="1440" alt="Screenshot 2024-12-16 at 10 36 27 PM" src="https://github.com/user-attachments/assets/7f2a3b9c-6804-4622-b29e-48ba3e4ed0b2" />
 
 
