@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Google Search
 
-## Getting Started
+## Overview
 
-First, run the development server:
+This project is a web application built using React and Next.js. It includes features such as image search, voice search, and a typeahead search bar.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Components
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Search Bar**: A component that provides a search input with typeahead functionality.
+  - File: `components/search-bar.tsx`
+  - Relevant Code: 
+    ```typescript:components/search-bar.tsx
+    startLine: 1
+    endLine: 59
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Search Dropdown**: Displays a list of trending searches or suggestions.
+  - File: `components/search-dropdown.tsx`
+  - Relevant Code: 
+    ```typescript:components/search-dropdown.tsx
+    startLine: 1
+    endLine: 78
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Image Search Modal**: A modal for uploading or linking images to search with Google Lens.
+  - File: `components/image-search-modal.tsx`
+  - Relevant Code: 
+    ```typescript:components/image-search-modal.tsx
+    startLine: 1
+    endLine: 99
+    ```
 
-## Learn More
+- **Input Component**: A reusable input component with styling.
+  - File: `components/ui/input.tsx`
+  - Relevant Code: 
+    ```typescript:components/ui/input.tsx
+    startLine: 1
+    endLine: 24
+    ```
+<img width="1440" alt="Screenshot 2024-12-16 at 10 36 27 PM" src="https://github.com/user-attachments/assets/7f2a3b9c-6804-4622-b29e-48ba3e4ed0b2" />
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img width="1440" alt="Screenshot 2024-12-16 at 10 36 45 PM" src="https://github.com/user-attachments/assets/3ecc4eb2-c26f-48ac-898c-b245404154e9" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Features
 
-## Deploy on Vercel
+- **Typeahead Search**: As you type in the search bar, suggestions appear based on predefined keywords.
+- **Image Search**: Upload or link images to search using Google Lens.
+- **Voice Search**: Initiate a search using voice commands.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository.
+2. Install dependencies using `npm install`.
+3. Run the development server with `npm run dev`.
