@@ -1,7 +1,5 @@
 # Google Search
 
-## Overview
-
 This project is a web application built using React and Next.js. It includes features such as image search, voice search, and a typeahead search bar. The application is designed to provide a seamless search experience with various input methods.
 
 ## Components
