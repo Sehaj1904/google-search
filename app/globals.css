@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --google-blue: #8ab4f8;
+  --google-gray-1: #202124;
+  --google-gray-2: #303134;
+  --google-gray-3: #3c4043;
+  --google-text: #e8eaed;
+  --google-text-secondary: #9aa0a6;
+}
+
+body {
+  @apply bg-[#202124] text-[#e8eaed];
+}
+
+.search-dropdown-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--google-gray-3) var(--google-gray-2);
+}
+
+.search-dropdown-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.search-dropdown-scroll::-webkit-scrollbar-track {
+  background: var(--google-gray-2);
+}
+
+.search-dropdown-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--google-gray-3);
+  border-radius: 4px;
+}
+
