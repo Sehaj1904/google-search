@@ -59,7 +59,7 @@ export function SearchBar({ onVoiceSearch }: SearchBarProps) {
         />
       )}
       {showImageSearch && (
-        <ImageSearchModal onClose={() => setShowImageSearch(false)} />
+        <ImageSearchModal showLoading={false} onClose={() => setShowImageSearch(false)} />
       )}
     </div>
   )
