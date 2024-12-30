@@ -12,7 +12,6 @@ interface SearchBarProps {
   onImageSearch: () => void,
   onVoiceSearch: () => void,
 }
-
 export function SearchBar({ onVoiceSearch }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
