@@ -5,7 +5,7 @@ import { Camera, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { SearchDropdown } from './search-dropdown';
 import { ImageSearchModal } from './image-search-modal';
-import { sampleKeywords } from '../utils/sampleKeywords';
+import { sampleKeywords } from './sampleKeywords';
 import Image from 'next/image';
 
 interface SearchBarProps {
