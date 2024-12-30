@@ -33,3 +33,106 @@ body {
   border-radius: 4px;
 }
 
+@keyframes scale-up {
+  from {
+    transform: scale(0.25);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.animate-scale-up {
+  animation: scale-up 0.1s ease-out forwards;
+}
+
+@keyframes text-up {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-text-up {
+  animation: text-up 0.5s ease-out forwards;
+}
+
+.ReactCrop__crop-selection {
+  border: none !important;
+  position: relative;
+}
+
+.ReactCrop__crop-selection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #8ab4f8;
+  border-left: 2px solid #8ab4f8;
+}
+
+.ReactCrop__crop-selection::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #8ab4f8;
+  border-right: 2px solid #8ab4f8;
+}
+
+.ReactCrop__drag-handle {
+  display: none !important;
+}
+
+.ReactCrop__crop-selection > div:first-child::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-top: 2px solid #8ab4f8;
+  border-right: 2px solid #8ab4f8;
+}
+
+.ReactCrop__crop-selection > div:first-child::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-bottom: 2px solid #8ab4f8;
+  border-left: 2px solid #8ab4f8;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animation-delay-300 {
+  animation-delay: 200ms;
+}
+
+
