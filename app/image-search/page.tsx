@@ -1,9 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Search, Type, Languages, Star } from 'lucide-react';
 import { Header } from '@/components/header';
+import ReactCrop, { Crop } from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
 
 interface Product {
   id: string,
@@ -25,8 +27,26 @@ interface Product {
 type Tab = 'search' | 'text' | 'translate';
 
 export default function ImageSearchPage() {
-  const [searchImage, ] = useState('https://image.uniqlo.com/UQ/ST3/AsianCommon/imagesgoods/439138/item/goods_32_439138.jpg')
+  const [searchImage, setSearchImage] = useState<string | undefined>(undefined);
   const [selectedTab, setSelectedTab] = useState<Tab>('search');
+  const [crop, setCrop] = useState<Crop>({
+    unit: '%',
+    width: 50,
+    height: 50,
+    x: 25,
+    y: 25,
+  });
+
+
+  useEffect(() => {
+    const storedImageUrl = localStorage.getItem('searchImageUrl');
+    if (storedImageUrl) {
+      setSearchImage(storedImageUrl);
+      localStorage.removeItem('searchImageUrl');
+    }else{
+    }
+  }, []);
+
   
   const products: Product[] = [
     {
@@ -86,30 +106,51 @@ export default function ImageSearchPage() {
   return (
     <div className="min-h-screen bg-[#202124]">
       <Header />
-      <div className="flex gap-8 p-8">
-        <div className="flex-1">
+      <div className="flex flex-col lg:flex-row gap-4 w-full max-w-[1200px] mx-auto p-4">
+        <div className="w-full lg:w-[500px]">
           <button className="mb-4 px-4 py-2 text-[#e8eaed] bg-[#303134] rounded-full text-sm hover:bg-[#3c4043] flex items-center gap-2">
             <Search className="w-4 h-4" />
             Find image source
           </button>
           <div className="relative flex flex-col">
             <div className="relative aspect-square max-w-[600px] bg-[#303134] rounded-lg overflow-hidden">
-              <Image
-                src={searchImage}
-                alt="Search image"
-                fill
-                className="object-contain"
-              />
+              {searchImage && <ReactCrop
+                crop={crop}
+                onChange={(c) => setCrop(c)}
+                className="h-full"
+                ruleOfThirds={false}
+                keepSelection
+                circularCrop={false}
+                minWidth={50}
+                minHeight={50}
+                disabled={false}
+                locked={false}
+                renderSelectionAddon={() => null}
+                style={
+                  {
+                    "--ReactCrop-border-color": "transparent",
+                    "--ReactCrop-crop-area-border-color": "#8ab4f8",
+                    "--ReactCrop-selection-background-color": "transparent",
+                  } as React.CSSProperties
+                }
+              >
+                <img
+                  src={searchImage}
+                  alt="Search image"
+                  className="w-full h-full object-contain"
+                />
+              </ReactCrop>}
+
               <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-black/50 to-transparent" />
-              <span className="absolute bottom-2 left-2 text-xs text-white">Click to go back, hold to see history</span>
             </div>
-            <div className="absolute bottom-4 left-4 flex gap-2 p-1 bg-[#303134]/80 backdrop-blur-sm rounded-full">
-              <button 
-                onClick={() => setSelectedTab('search')}
+            <div className="absolute -bottom-0 left-[10%] lg:-bottom-28 lg:left-20 sm:left-[20%] flex gap-2 p-1 bg-[#303134]/80 backdrop-blur-sm rounded-full">
+              <button
+                onClick={() => setSelectedTab("search")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
-                  ${selectedTab === 'search' 
-                    ? 'bg-[#8ab4f8] text-[#202124]' 
-                    : 'text-[#e8eaed] hover:bg-[#3c4043]'
+                  ${
+                    selectedTab === "search"
+                      ? "bg-[#8ab4f8] text-[#202124]"
+                      : "text-[#e8eaed] hover:bg-[#3c4043]"
                   }`}
               >
                 <span className="flex items-center gap-2">
@@ -117,12 +158,13 @@ export default function ImageSearchPage() {
                   Search
                 </span>
               </button>
-              <button 
-                onClick={() => setSelectedTab('text')}
+              <button
+                onClick={() => setSelectedTab("text")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
-                  ${selectedTab === 'text' 
-                    ? 'bg-[#8ab4f8] text-[#202124]' 
-                    : 'text-[#e8eaed] hover:bg-[#3c4043]'
+                  ${
+                    selectedTab === "text"
+                      ? "bg-[#8ab4f8] text-[#202124]"
+                      : "text-[#e8eaed] hover:bg-[#3c4043]"
                   }`}
               >
                 <span className="flex items-center gap-2">
@@ -130,12 +172,13 @@ export default function ImageSearchPage() {
                   Text
                 </span>
               </button>
-              <button 
-                onClick={() => setSelectedTab('translate')}
+              <button
+                onClick={() => setSelectedTab("translate")}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors
-                  ${selectedTab === 'translate' 
-                    ? 'bg-[#8ab4f8] text-[#202124]' 
-                    : 'text-[#e8eaed] hover:bg-[#3c4043]'
+                  ${
+                    selectedTab === "translate"
+                      ? "bg-[#8ab4f8] text-[#202124]"
+                      : "text-[#e8eaed] hover:bg-[#3c4043]"
                   }`}
               >
                 <span className="flex items-center gap-2">
@@ -146,7 +189,7 @@ export default function ImageSearchPage() {
             </div>
           </div>
         </div>
-        <div className="w-[500px]">
+        <div className="w-full lg:w-[500px]">
           <h2 className="text-[#e8eaed] text-lg mb-4">Related searches</h2>
           <div className="grid grid-cols-2 gap-4">
             {products.map((product) => (
@@ -162,7 +205,9 @@ export default function ImageSearchPage() {
                     className="object-cover"
                   />
                   <div className="absolute top-2 left-2 px-2 py-1 bg-[#202124]/80 backdrop-blur-sm rounded-full">
-                    <span className="text-[#e8eaed] text-sm font-medium">{product.price}</span>
+                    <span className="text-[#e8eaed] text-sm font-medium">
+                      {product.price}
+                    </span>
                   </div>
                 </div>
                 <div className="p-3">
@@ -175,14 +220,22 @@ export default function ImageSearchPage() {
                         className="object-contain"
                       />
                     </div>
-                    <span className="text-[#e8eaed] text-sm">{product.retailer.name}</span>
+                    <span className="text-[#e8eaed] text-sm">
+                      {product.retailer.name}
+                    </span>
                   </div>
-                  <h3 className="text-[#e8eaed] text-sm font-medium mb-1 line-clamp-2">{product.title}</h3>
+                  <h3 className="text-[#e8eaed] text-sm font-medium mb-1 line-clamp-2">
+                    {product.title}
+                  </h3>
                   {product.rating && (
                     <div className="flex items-center gap-1">
-                      <span className="text-[#e8eaed] text-sm">{product.rating.value}</span>
+                      <span className="text-[#e8eaed] text-sm">
+                        {product.rating.value}
+                      </span>
                       <Star className="w-3 h-3 fill-[#8ab4f8] text-[#8ab4f8]" />
-                      <span className="text-[#9aa0a6] text-sm">({product.rating.count})</span>
+                      <span className="text-[#9aa0a6] text-sm">
+                        ({product.rating.count})
+                      </span>
                     </div>
                   )}
                   <div className="mt-1">
@@ -195,7 +248,10 @@ export default function ImageSearchPage() {
                   {product.additionalImages && (
                     <div className="flex gap-1 mt-2">
                       {product.additionalImages.map((image, index) => (
-                        <div key={index} className="relative w-12 h-12 rounded-lg overflow-hidden">
+                        <div
+                          key={index}
+                          className="relative w-12 h-12 rounded-lg overflow-hidden"
+                        >
                           <Image
                             src={image}
                             alt={`${product.title} - View ${index + 2}`}
