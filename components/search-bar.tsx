@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useRef } from 'react';
-import { Camera, Mic, Search } from 'lucide-react';
+import { Camera, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { SearchDropdown } from './search-dropdown';
 import { ImageSearchModal } from './image-search-modal';
-import { sampleKeywords } from './sampleKeywords';
+import { sampleKeywords } from '../utils/sampleKeywords';
+import Image from 'next/image';
 
 interface SearchBarProps {
   onImageSearch: () => void,
@@ -38,7 +39,13 @@ export function SearchBar({ onVoiceSearch }: SearchBarProps) {
         />
         <div className="absolute right-4 top-3 flex items-center space-x-3">
           <button onClick={onVoiceSearch} className="focus:outline-none" title="Voice Search">
-            <Mic className="h-5 w-5 text-blue-500 cursor-pointer" />
+            <Image 
+              src="/mic.svg"
+              alt="Voice Search"
+              width={20}
+              height={20}
+              className="cursor-pointer"
+            />
           </button>
           <button onClick={() => setShowImageSearch(true)} className="focus:outline-none" title="Image Search">
             <Camera className="h-5 w-5 text-blue-500 cursor-pointer" />
