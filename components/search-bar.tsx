@@ -4,7 +4,6 @@ import { useState, useRef } from 'react';
 import { Camera, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { SearchDropdown } from './search-dropdown';
-import { ImageSearchModal } from './image-search-modal';
 import { sampleKeywords } from './sampleKeywords';
 import Image from 'next/image';
 
@@ -15,7 +14,7 @@ interface SearchBarProps {
 export function SearchBar({ onVoiceSearch }: SearchBarProps) {
   const [query, setQuery] = useState('');
   const [showDropdown, setShowDropdown] = useState(false);
-  const [showImageSearch, setShowImageSearch] = useState(false);
+  const [, setShowImageSearch] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const filteredKeywords = sampleKeywords.filter(keyword =>
