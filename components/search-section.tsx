@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { SearchBar } from './search-bar';
 import { ImageSearchModal } from './image-search-modal';
 import { VoiceSearchModal } from './voice-search-modal'
 import { Button } from '@/components/ui/button'
@@ -25,10 +24,6 @@ export function SearchSection() {
         />
       </div>
 
-      <SearchBar 
-        onImageSearch={() => setShowImageSearch(true)}
-        onVoiceSearch={() => setShowVoiceSearch(true)}
-      />
 
       <div className="flex space-x-3 mt-8">
         <Button variant="secondary" className="bg-[#303134] hover:bg-[#3c4043] text-gray-300 border-0">
